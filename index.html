@@ -2,65 +2,113 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Inclusive Form Flow</title><link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Community Skills Workshop Registration</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header class="page-header">
-            <p class="eyebrow">Application, Registration, or Request</p>
-            <h1>Replace with a specific task title</h1>
-            <p class="lede">Explain who this form is for, what it accomplishes, how long it takes, and what happens after submission.</p>
+            <p class="eyebrow">Community Learning Center</p>
+            <h1>Register for a free digital skills workshop</h1>
+            <p class="lede">A three-minute request for adults who want practical help with everyday technology. After submission, the fictional center sends a confirmation or wait-list message within two business days.</p>
         </header>
         <main>
             <section id="expectations">
-                <h2>F1 · Purpose and Expectations</h2>
-                <p>State the required/optional convention and a concise privacy notice. Use fictional test data only.</p>
+                <p class="section-label">F1</p>
+                <h2>Purpose and expectations</h2>
+                <p>Choose one workshop and tell us how to prepare. Labels marked <span aria-hidden="true">*</span> are required; all others are optional. This prototype uses fictional information only and collects no real data, passwords, payment details, or identification numbers. A real center would use answers only for this request.</p>
             </section>
-            <form action="" method="get">
-                <fieldset>
-                    <legend>F3 · Contact information</legend>
-                    <p class="help">Replace or extend this group based on your justified field inventory.</p>
-                    <div class="field">
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" autocomplete="name">
-                    </div>
-                    <div class="field">
-                        <label for="email">Email address (required)</label>
-                        <input id="email" name="email" type="email" autocomplete="email" required>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>F3 · Request choices</legend>
-                    <p class="help">Use an appropriate radio, checkbox, or select structure for the task.</p>
-                    <label class="choice">
-                        <input type="radio" name="request_type" value="option-a"> Replace with option A</label>
-                        <label class="choice"><input type="radio" name="request_type" value="option-b"> Replace with option B</label>
+            <section id="form-section">
+                <p class="section-label">F3 and F4</p>
+                <h2>Workshop request</h2>
+                <p class="requirements">Before entry: select one workshop, use an email you can check, and describe your goal in 500 characters or fewer. Phone and accessibility follow-up are optional.</p>
+                <form action="" method="post">
+                    <fieldset>
+                        <legend>Contact details</legend>
+                        <p class="help">We need one reliable way to respond.</p>
+                        <label for="full-name">Full name <span aria-hidden="true">*</span></label>
+                        <input id="full-name" name="full_name" type="text" autocomplete="name" required>
+                        <div class="paired-fields">
+                            <div class="field">
+                                <label for="email">Email address <span aria-hidden="true">*</span></label>
+                                <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+                                <p class="help">Example: learner@example.com</p>
+                            </div>
+                            <div class="field">
+                                <label for="phone">Phone number (optional)</label>
+                                <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="555-0100">
+                            </div>
+                        </div>
                     </fieldset>
-                    <div class="field">
-                        <label for="details">Request details</label>
-                        <p class="help" id="details-help">Explain the expected content and any limit before entry.</p>
-                        <textarea id="details" name="details" aria-describedby="details-help"></textarea>
-                    </div>
-                    <button type="submit">Replace with a specific action</button>
+                    <fieldset>
+                        <legend>Workshop selection</legend>
+                        <p class="help">Choose the topic that best matches your goal.</p>
+                        <label for="workshop">Workshop topic <span aria-hidden="true">*</span></label>
+                        <select id="workshop" name="workshop" required>
+                            <option value="">Select a topic</option>
+                            <option value="online-safety">Online safety basics</option>
+                            <option value="job-search">Online job searching</option>
+                            <option value="video-calls">Video calls and messaging</option>
+                        </select>
+                        <label for="preferred-date">Preferred date <span aria-hidden="true">*</span></label>
+                        <input id="preferred-date" name="preferred_date" type="date" required>
+                        <p class="help">Choose a date at least one week from today.</p>
+                        <p id="attendance-label" class="field-label">How will you attend? <span aria-hidden="true">*</span></p>
+                        <div class="choice-group" role="group" aria-labelledby="attendance-label">
+                            <label class="choice">
+                                <input type="radio" name="attendance" value="in-person" required> In person
+                            </label>
+                            <label class="choice">
+                                <input type="radio" name="attendance" value="online"> Online
+                            </label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Preparation</legend>
+                        <label for="learning-goal">What should you be able to do after the workshop? <span aria-hidden="true">*</span></label>
+                        <textarea id="learning-goal" name="learning_goal" rows="5" maxlength="500" aria-describedby="learning-help" required></textarea>
+                        <p class="help" id="learning-help">Maximum 500 characters. Do not include passwords or private information.</p>
+                        <label class="choice">
+                            <input type="checkbox" name="accessibility_support" value="requested">
+                            I would like follow-up about an accessibility support option.
+                        </label>
+                    </fieldset>
+                    <label class="choice">
+                        <input type="checkbox" name="privacy_acknowledged" value="yes" required>
+                        I understand that this prototype uses fictional information and answers would be used only for this workshop request. <span aria-hidden="true">*</span>
+                    </label>
+                    <button type="submit">Request a workshop place</button>
                 </form>
-                <section id="states">
-                    <h2>F5 · State and Recovery Specimen</h2>
-                    <p>Document default, focus, required, valid, invalid, disabled, and a static server-returned error. Keep this section separate from the primary blank form when necessary to avoid misleading users.</p>
-                    <div class="error-summary">
-                        <h3>There is a problem with the fictional submission</h3>
-                        <p><a href="#error-example">Email address needs attention</a></p>
+            </section>
+            <section id="states">
+                <p class="section-label">F5</p>
+                <h2>State and recovery specimen</h2>
+                <p>Default fields are blank; focus uses a yellow outline; required fields use native browser prompts; valid fields accept matching values. Invalid fields preserve entries and show text plus a red border. The static server error below identifies recovery. The disabled button demonstrates a review state.</p>
+                <div class="state-grid">
+                    <div class="state-card">
+                        <h3>Static server-returned error</h3>
+                        <div class="error-summary">
+                            <h4>Check your workshop request</h4>
+                            <p><a href="#error-example">Email address needs attention</a></p>
+                        </div>
+                        <div class="field field-error">
+                            <label for="error-example">Email address</label>
+                            <input id="error-example" type="email" value="learner.example" aria-invalid="true" aria-describedby="error-message">
+                            <p id="error-message" class="error-message"><strong>Error:</strong> Enter name@example.com, then submit again. Other answers stay in the form.</p>
+                        </div>
                     </div>
-                    <div class="field field-error">
-                        <label for="error-example">Email address</label>
-                        <input id="error-example" type="email" value="alex.example" aria-invalid="true" aria-describedby="error-message">
-                        <p id="error-message"><strong>Error:</strong> Enter an address in the format name@example.com.</p>
+                    <div class="state-card">
+                        <h3>Disabled example</h3>
+                        <p class="help">A real system could disable this while reviewing.</p>
+                        <button type="button" disabled>Reviewing request</button>
                     </div>
-                    <button type="button" disabled>Disabled example</button>
-                </section>
-                <section id="documentation">
-                    <h2>F2 and F6 · Planning and Evidence</h2>
-                    <p>Link your field inventory, state matrix, fictional test-data list, completed test record, and AI disclosure.</p>
-                </section>
-            </main>
-        </body>
-        </html>
+                </div>
+            </section>
+            <section id="documentation">
+                <p class="section-label">F2 and F6</p>
+                <h2>Planning and evidence</h2>
+                <p>The <a href="field-inventory-template.html">field inventory</a> explains every value, purpose, control, name, constraint, and sensitivity decision. Plain-text test record, fictional data list, AI disclosure, and code defense complete F6.</p>
+            </section>
+        </main>
+    </body>
+</html>

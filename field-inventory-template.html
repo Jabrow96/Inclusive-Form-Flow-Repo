@@ -2,36 +2,52 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Field Inventory</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Workshop registration field inventory</title>
         <style>
-        body{
-            font-family:Arial,sans-serif;
-            line-height:1.5;
-            max-width:80rem;
-            margin:auto;
-            padding:1rem;
-            color:#191919;
-        }
-        table{
-            width:100%;
-            border-collapse:collapse;
-        }
-        th,td{
-            padding:.6rem;
-            border:1px solid #999;
-            text-align:left;
-            vertical-align:top;
-        }
-        th{
-            background:#f1f1f1;
-        }
+            :root {
+                color-scheme: light;
+            }
+            body {
+                max-width: 90rem;
+                margin: auto;
+                padding: 1rem;
+                color: #1d2730;
+                font: 1rem/1.5 Arial, sans-serif;
+            }
+            h1 {
+                line-height: 1.2;
+            }
+            .table-wrap {
+                overflow-x: auto;
+            }
+            table {
+                width: 100%;
+                min-width: 70rem;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: .65rem;
+                border: 1px solid #71808a;
+                text-align: left;
+                vertical-align: top;
+            }
+            th {
+                background: #f3f7f8;
+            }
+            caption {
+                margin-bottom: .75rem;
+                text-align: left;
+                font-weight: 700;
+            }
         </style>
-        </head>
-        <body>
-            <h1>F2 · Task and Data Plan</h1>
-            <p>Duplicate rows as needed. Justify every collected value.</p>
+    </head>
+    <body>
+        <h1>F2 · Task and data plan</h1>
+        <p>This inventory covers the ten purposeful controls in the Community Skills Workshop registration form. The disabled button and static error specimen are state examples, not submitted data controls.</p>
+        <div class="table-wrap" tabindex="0" aria-label="Scrollable field inventory table">
             <table>
+                <caption>Why each workshop-request value is needed</caption>
                 <thead>
                     <tr>
                         <th>Visible label / question</th>
@@ -46,16 +62,107 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Example only</td>
-                        <td>Replace</td>
-                        <td>Yes/No</td>
-                        <td>Replace</td>
-                        <td>Replace</td>
-                        <td>Replace or N/A</td>
-                        <td>Replace or none</td>
-                        <td>Replace</td>
+                        <td>Full name</td>
+                        <td>Lets the center address the confirmation and match the request to a seat.</td>
+                        <td>Yes</td>
+                        <td>Text input</td>
+                        <td><code>full_name</code></td>
+                        <td><code>autocomplete="name"</code></td>
+                        <td>Required; browser text entry.</td>
+                        <td>Basic identifying information. Collect one name only; no date of birth or ID.</td>
+                    </tr>
+                    <tr>
+                        <td>Email address</td>
+                        <td>Provides the primary route for the confirmation or wait-list message.</td>
+                        <td>Yes</td>
+                        <td>Email input</td>
+                        <td><code>email</code></td>
+                        <td><code>autocomplete="email"</code></td>
+                        <td>Required; native email format; example is shown.</td>
+                        <td>Contact information. Needed for the stated next step and not used for marketing.</td>
+                    </tr>
+                    <tr>
+                        <td>Phone number (optional)</td>
+                        <td>Offers a second response route when an email reply is difficult.</td>
+                        <td>No</td>
+                        <td>Telephone input</td>
+                        <td><code>phone</code></td>
+                        <td><code>autocomplete="tel"</code>, <code>inputmode="tel"</code></td>
+                        <td>Optional; no rigid pattern so local formats remain possible.</td>
+                        <td>Contact information. Optional to minimize collection.</td>
+                    </tr>
+                    <tr>
+                        <td>Workshop topic</td>
+                        <td>Places the person in the correct limited-capacity session.</td>
+                        <td>Yes</td>
+                        <td>Select</td>
+                        <td><code>workshop</code>: <code>online-safety</code>, <code>job-search</code>, or <code>video-calls</code></td>
+                        <td>Not applicable</td>
+                        <td>Required; choose one listed topic.</td>
+                        <td>Preference, not sensitive. Only current workshop choices are offered.</td>
+                    </tr>
+                    <tr>
+                        <td>Preferred date</td>
+                        <td>Helps schedule the request in a realistic upcoming session.</td>
+                        <td>Yes</td>
+                        <td>Date input</td>
+                        <td><code>preferred_date</code></td>
+                        <td>Not applicable</td>
+                        <td>Required; instruction asks for a date at least one week away.</td>
+                        <td>Scheduling information. No recurring availability or calendar history is collected.</td>
+                    </tr>
+                    <tr>
+                        <td>How will you attend? — In person</td>
+                        <td>Allows the center to plan room space for the selected delivery mode.</td>
+                        <td>Yes, as part of the group</td>
+                        <td>Radio input</td>
+                        <td><code>attendance</code>: <code>in-person</code></td>
+                        <td>Not applicable</td>
+                        <td>Required group; select exactly one option.</td>
+                        <td>Access preference. This value is limited to the workshop's delivery modes.</td>
+                    </tr>
+                    <tr>
+                        <td>How will you attend? — Online</td>
+                        <td>Allows the center to plan an online meeting link for the selected delivery mode.</td>
+                        <td>Yes, as part of the group</td>
+                        <td>Radio input</td>
+                        <td><code>attendance</code>: <code>online</code></td>
+                        <td>Not applicable</td>
+                        <td>Required group; select exactly one option.</td>
+                        <td>Access preference. This value is limited to the workshop's delivery modes.</td>
+                    </tr>
+                    <tr>
+                        <td>Learning goal</td>
+                        <td>Helps the facilitator prepare a relevant beginner activity.</td>
+                        <td>Yes</td>
+                        <td>Textarea</td>
+                        <td><code>learning_goal</code></td>
+                        <td>Not applicable</td>
+                        <td>Required; maximum 500 characters; do not include private information.</td>
+                        <td>Free-text detail can be sensitive. Limit length and explicitly discourage secrets.</td>
+                    </tr>
+                    <tr>
+                        <td>Accessibility support option</td>
+                        <td>Signals that a follow-up about available access support may be useful.</td>
+                        <td>No</td>
+                        <td>Checkbox</td>
+                        <td><code>accessibility_support</code>: <code>requested</code></td>
+                        <td>Not applicable</td>
+                        <td>Optional; check only if contact about an option is wanted.</td>
+                        <td>Potentially sensitive access information. Ask only whether follow-up is wanted, not for a diagnosis.</td>
+                    </tr>
+                    <tr>
+                        <td>Fictional-information acknowledgement</td>
+                        <td>Confirms the prototype's privacy boundary before a request is attempted.</td>
+                        <td>Yes</td>
+                        <td>Checkbox</td>
+                        <td><code>privacy_acknowledged</code>: <code>yes</code></td>
+                        <td>Not applicable</td>
+                        <td>Required; must be checked to submit.</td>
+                        <td>Not personal data. This protects the assessment boundary and is not retained.</td>
                     </tr>
                 </tbody>
             </table>
-        </body>
-        </html>
+        </div>
+    </body>
+</html>
