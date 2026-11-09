@@ -179,6 +179,16 @@ button:hover {
     border-color: var(--error);
 }
 
+.field-valid input {
+    border-color: #287044;
+}
+
+.valid-message {
+    margin: 0;
+    color: #287044;
+    font-weight: 700;
+}
+
 .error-message {
     margin-bottom: 0;
     color: var(--error);
