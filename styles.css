@@ -34,6 +34,11 @@ a {
     background: var(--action);
 }
 
+.page-header > * {
+    max-width: 58rem;
+    margin-inline: auto;
+}
+
 main {
     width: min(100% - 2rem, 58rem);
     margin: auto;
@@ -75,7 +80,7 @@ h3 {
 
 section {
     max-width: var(--measure);
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem;
 }
 
 .requirements, .error-summary, .field-error {
